@@ -18,7 +18,8 @@ def fib(n):
 
 # main
 i = 2
-while fib(i) < 4000000000:
+limit = 4 * 1000 * 1000
+while fib(i) < limit:
     answer += fib(i)
     i += 3
 print answer
