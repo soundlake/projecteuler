@@ -1,4 +1,4 @@
-projecteuler
+Project Euler
 ============
 
-Solution for Project Euler.net
+Solution for [ProjectEuler.net](https://projecteuler.net)
