@@ -4,7 +4,7 @@ answer = 0
 
 # read data from the file
 try:
-    f = open('fibonacci.json', 'r')
+    f = open('../data/fibonacci.json', 'r')
     fibArr = json.load(f)
     f.close()
 except:
@@ -25,6 +25,6 @@ while fib(i) < limit:
 print answer
 
 # write data to the file
-f = open('fibonacci.json', 'w')
+f = open('../data/fibonacci.json', 'w')
 json.dump(fibArr, f)
 f.close()
