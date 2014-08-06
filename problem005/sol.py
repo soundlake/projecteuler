@@ -1,3 +1,4 @@
+#initialize
 primes = [2, 3, 5, 7, 11, 13, 17, 19]
 factors = {}
 for p in primes:
@@ -5,8 +6,12 @@ for p in primes:
 
 
 
+# sub function
 def factorize(n):
     d = {}
+    for p in primes:
+        d[str(p)] = 0
+
     if n in primes:
         d[str(n)] = 1
     else:
@@ -14,8 +19,6 @@ def factorize(n):
             while n % p == 0:
                 if str(p) in d:
                     d[str(p)] += 1
-                else:
-                    d[str(p)] = 1
                 n /= p
     return d
 
@@ -27,7 +30,7 @@ for i in range(2, 21):
     for k in factorized:
         if (factors[k] < factorized[k]):
             factors[k] = factorized[k]
-print factors
+
 answer = 1
 for k in factors:
     answer *= int(k) ** factors[k]
