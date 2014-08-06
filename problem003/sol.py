@@ -18,7 +18,7 @@ def isPrime(n):
         return n in primes
     idx = 0
     factor = primes[idx]
-    while factor < n ** 0.5:
+    while factor <= n ** 0.5:
         if n % factor == 0:
             return False
         if idx < len(primes):
