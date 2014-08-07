@@ -17,8 +17,7 @@ def factorize(n):
     else:
         for p in primes:
             while n % p == 0:
-                if str(p) in d:
-                    d[str(p)] += 1
+                d[str(p)] += 1
                 n /= p
     return d
 
