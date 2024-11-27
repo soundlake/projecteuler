@@ -1,13 +1,12 @@
 fn get_answer(threshold: u32) -> u32 {
-    let mut sum:u32 = 0;
+    let sum = (1..threshold)
+        .filter(| x | x % 3 == 0 || x % 5 == 0)
+        .reduce(| a, b | a + b);
 
-    for number in 1..threshold {
-        if number % 3 == 0 || number % 5 == 0 {
-            sum += number;
-        }
+    match sum {
+        Some(n) => n,
+        None => 0
     }
-
-    sum
 }
 
 fn main() {
