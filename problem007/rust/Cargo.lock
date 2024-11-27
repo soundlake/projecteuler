@@ -3,5 +3,12 @@
 version = 3
 
 [[package]]
+name = "prime_db"
+version = "0.1.0"
+
+[[package]]
 name = "rust"
 version = "0.1.0"
+dependencies = [
+ "prime_db",
+]

@@ -1,7 +1,6 @@
 [package]
-name = "rust"
+name = "prime_db"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-prime_db = { path = "../../lib/prime_db" }
