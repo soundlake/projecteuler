@@ -1,21 +1,4 @@
-// https://stackoverflow.com/a/44378174/4276533 for measuring time
-use std::time::SystemTime;
-
-macro_rules! measure_time {
-    ($f:ident($($arg:expr),*)) => {{
-        println!("Measuring the function: {}", stringify!($f));
-        let start = SystemTime::now();
-
-        let return_value = $f($($arg),*);
-
-        let time_elapsed = SystemTime::now()
-            .duration_since(start)
-            .expect("Time went backwards");
-        println!("It took {:?}", time_elapsed);
-
-        return_value
-    }};
-}
+use measure_time::measure_time;
 
 fn find_prime_factors(target: u64) -> Vec<u64> {
     let max = (target as f64).sqrt().floor() as u64;
