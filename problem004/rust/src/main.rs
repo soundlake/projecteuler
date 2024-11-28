@@ -24,3 +24,16 @@ fn main() {
 
     println!("The answer is {}", largest);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_palindrome() {
+        assert_eq!(is_palindrome(11), true);
+        assert_eq!(is_palindrome(10), false);
+        assert_eq!(is_palindrome(101), true);
+        assert_eq!(is_palindrome(1010), false);
+    }
+}
