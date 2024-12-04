@@ -1,18 +1,13 @@
 use num_bigint::BigUint;
+use digits::sum_of_digits;
 
-fn sum_of_digits(number: BigUint) -> u16 {
-    number
-        .to_str_radix(10)
-        .chars()
-        .map(| c | c.to_digit(10).unwrap() as u16)
-        .reduce(| a, b | a + b)
-        .unwrap()
+fn get_answer(pow: u32) -> u16 {
+    let number = BigUint::parse_bytes(b"2", 10).unwrap().pow(pow);
+    sum_of_digits(number)
 }
 
 fn main() {
-    let number = BigUint::parse_bytes(b"2", 10).unwrap().pow(1000);
-    println!("... {}", number);
-    println!("The answer is {}", sum_of_digits(number));
+    println!("The answer is {}", get_answer(1000));
 }
 
 #[cfg(test)]
@@ -21,6 +16,6 @@ mod tests {
 
     #[test]
     fn test_sum_of_digits() {
-        assert_eq!(sum_of_digits(BigUint::parse_bytes(b"2", 10).unwrap().pow(15)), 26);
+        assert_eq!(get_answer(15), 26);
     }
 }
