@@ -1,7 +1,6 @@
 [package]
-name = "rust"
+name = "divisors"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-divisors = { path = "../../lib/divisors" }
