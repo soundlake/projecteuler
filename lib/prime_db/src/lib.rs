@@ -27,7 +27,7 @@ pub fn get_prime_numbers(n: usize) -> Vec<u32> {
 pub fn get_prime_numbers_until(n: u32) -> Vec<u32> {
     let mut primes = get_known_primes();
     let mut candidate = primes[primes.len() - 1];
-    'loop_prime: while candidate + 2 < n {
+    'loop_prime: while candidate + 2 <= n {
         candidate += 2;
         for p in primes.iter() {
             if candidate % p == 0 {
@@ -66,5 +66,6 @@ mod tests {
         assert_eq!(get_prime_numbers_until(1), [].to_vec());
         assert_eq!(get_prime_numbers_until(10), [2, 3, 5, 7].to_vec());
         assert_eq!(get_prime_numbers_until(40), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37].to_vec());
+        assert_eq!(get_prime_numbers_until(41), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41].to_vec());
     }
 }
