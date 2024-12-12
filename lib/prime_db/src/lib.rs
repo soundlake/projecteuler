@@ -49,6 +49,14 @@ pub fn get_prime_numbers_until(n: u32) -> Vec<u32> {
     primes
 }
 
+pub fn is_prime(n: u32) -> bool {
+    if n % 2 == 0 && n != 2 {
+        return false;
+    }
+    let primes = get_prime_numbers_until(n);
+    primes.contains(&n)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -67,5 +75,12 @@ mod tests {
         assert_eq!(get_prime_numbers_until(10), [2, 3, 5, 7].to_vec());
         assert_eq!(get_prime_numbers_until(40), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37].to_vec());
         assert_eq!(get_prime_numbers_until(41), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41].to_vec());
+    }
+
+    #[test]
+    fn test_is_prime() {
+        assert_eq!(is_prime(10), false);
+        assert_eq!(is_prime(41), true);
+        teardown();
     }
 }
