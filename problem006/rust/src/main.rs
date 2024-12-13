@@ -11,7 +11,7 @@ fn get_answer(n: u32) -> u32 {
 }
 
 fn main() {
-    println!("The answer is {}", answer(100));
+    println!("The answer is {}", get_answer(100));
 }
 
 #[cfg(test)]

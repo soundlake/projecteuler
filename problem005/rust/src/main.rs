@@ -2,7 +2,7 @@ use prime_db::get_prime_numbers_until;
 
 fn main() {
     const MAX: u32 = 20;
-    let primes = get_prime_numbers_until(MAX);
+    let primes = get_prime_numbers_until(MAX, &mut [].to_vec());
     let mut answer = 1;
     for base in primes.iter() {
         let mut power = 1;
