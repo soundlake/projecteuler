@@ -1,8 +1,8 @@
-use prime_db::get_prime_numbers_until;
+use prime_db::get_primes_until;
 
 fn main() {
     const MAX: u32 = 20;
-    let primes = get_prime_numbers_until(MAX, &mut [].to_vec());
+    let primes = get_primes_until(MAX);
     let mut answer = 1;
     for base in primes.iter() {
         let mut power = 1;

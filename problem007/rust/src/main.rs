@@ -1,7 +1,7 @@
-use prime_db::get_prime_numbers;
+use prime_db::get_primes;
 
 fn get_answer(n: usize) -> u32 {
-    let primes = get_prime_numbers(n, &mut [].to_vec());
+    let primes = get_primes(n);
     primes[n - 1]
 }
 

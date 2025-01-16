@@ -1,4 +1,4 @@
-use prime_db::get_prime_numbers_until;
+use prime_db::get_primes_until;
 use measure_time::measure_time;
 
 /// Returns the longest cycle. Does not care about the
@@ -43,7 +43,7 @@ fn recurring_cycle_of_unit_fraction(d: u32) -> String {
 
 fn get_answer() -> u32 {
     let mut answer: (u32, usize) = (2, 0);
-    for prime in get_prime_numbers_until(1000).into_iter() {
+    for prime in get_primes_until(1000).into_iter() {
         let cycle = recurring_cycle_of_unit_fraction(prime);
         let len = cycle.len();
         if len > answer.1 {

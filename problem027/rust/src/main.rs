@@ -5,12 +5,12 @@ fn f(n: u32, a: i32, b: i32) -> i64 {
     (n.pow(2) as i64) + (a as i64 * n as i64) + b as i64
 }
 
-fn n(a: i32, b: i32, primes: &mut Vec<u32>) -> usize {
+fn n(a: i32, b: i32) -> usize {
     let mut i: u32 = 0;
 
     loop {
         let f = f(i, a, b);
-        if f <= 0 || !(is_prime(f as u32, primes)) {
+        if f <= 0 || !(is_prime(f as u32)) {
             break;
         }
         i += 1;
@@ -21,11 +21,10 @@ fn n(a: i32, b: i32, primes: &mut Vec<u32>) -> usize {
 
 fn get_answer() -> i32 {
     let mut answer: (i32, i32, usize) = (-999, -999, 0);
-    let mut primes: Vec<u32> = Vec::new();
 
     for a in -999..1000 {
         for b in -999..1000 {
-            let n = n(a, b, &mut primes);
+            let n = n(a, b);
             if answer.2 < n {
                 answer = (a, b, n);
             }
@@ -51,8 +50,7 @@ mod tests {
 
     #[test]
     fn test_n() {
-        let mut primes: Vec<u32> = Vec::new();
-        assert_eq!(n(1, 41, &mut primes), 40);
-        assert_eq!(n(-79, 1601, &mut primes), 80);
+        assert_eq!(n(1, 41), 40);
+        assert_eq!(n(-79, 1601), 80);
     }
 }

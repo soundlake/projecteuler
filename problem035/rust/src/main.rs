@@ -1,13 +1,12 @@
 use std::collections::{HashSet, VecDeque};
 use measure_time::measure_time;
-use prime_db::get_prime_numbers_until;
+use prime_db::get_primes_until;
 use rust::circulars;
 
 const ONE_MILLION: u32 = 1_000_000;
 
 fn get_answer() -> usize {
-    let mut primes: VecDeque<u32> = VecDeque::new();
-    primes = get_prime_numbers_until(ONE_MILLION, &mut primes.into()).into();
+    let mut primes: VecDeque<u32> = get_primes_until(ONE_MILLION).into();
     let mut circular_primes: HashSet<u32> = HashSet::new();
     loop {
         // Reducing the primes VecDequq to make contains() more efficient
